@@ -57,7 +57,7 @@
           .type(Greeting.class) // We want only Greetings
           .ancestor(theBook)    // Anyone in this book
           .order("-date")       // Most recent first - date is indexed.
-          .limit(5)             // Only show 5 of them.
+          // .limit(5)             // Only show 5 of them.
           .list();
 
     if (greetings.isEmpty()) {
@@ -70,7 +70,7 @@
 <%
       // Look at all of our greetings
         for (Greeting greeting : greetings) {
-            pageContext.setAttribute("greeting_content", greeting.content);
+            pageContext.setAttribute("greeting_content", "Your website is awesome! " + greeting.content);
             String author;
             if (greeting.author_email == null) {
                 author = "An anonymous person";
